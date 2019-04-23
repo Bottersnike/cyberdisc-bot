@@ -346,6 +346,23 @@ class Cyber(Cog):
 
         await self.countdown('5th March 2019', 'CyberStart Essentials', ctx)
 
+    @command()
+    async def hundered(self, ctx: Context):
+        """
+        Gets the number of 100% and true 100% users
+        """
+
+        game = true = 0
+        for member in ctx.guild.members:
+            for role in member.role:
+                if role.name == '100 Percent':
+                    game += 1
+                elif role.name == 'True 100%':
+                    true += 1
+
+        await ctx.send((f"There are {game} 100% users, of which {true} have "
+                        f"also completed Essentials and Assess."))
+
     async def countdown(self, countdown_target_str: str, stage_name: str, ctx: Context):
         countdown_target = parse(countdown_target_str).date()
 
